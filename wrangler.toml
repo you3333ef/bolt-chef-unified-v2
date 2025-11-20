@@ -9,14 +9,8 @@ vars = { ENVIRONMENT = "production" }
 [env.production.env]
 VITE_CONVEX_URL = "https://your-deployment.convex.cloud"
 
-[env.staging]
-vars = { ENVIRONMENT = "staging" }
+[env.preview]
+vars = { ENVIRONMENT = "preview" }
 
-[env.staging.env]
-VITE_CONVEX_URL = "https://your-staging-deployment.convex.cloud"
-
-[env.development]
-vars = { ENVIRONMENT = "development" }
-
-[env.development.env]
-VITE_CONVEX_URL = "http://localhost:3210"
+[env.preview.env]
+VITE_CONVEX_URL = "https://your-preview-deployment.convex.cloud"
