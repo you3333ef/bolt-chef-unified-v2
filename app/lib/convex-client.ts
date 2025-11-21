@@ -1,4 +1,4 @@
-import { ConvexReactClient } from "@convex-dev/react-browser";
+import { ConvexReactClient } from "convex";
 
 const convexUrl = import.meta.env.VITE_CONVEX_URL || "http://localhost:3210";
 
