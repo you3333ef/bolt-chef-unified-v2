@@ -1,14 +1,17 @@
-# Bolt-Chef Unified
+# Bolt-Chef Unified v2
 
 <div align="center">
 
-**AI-Powered Full-Stack Web Development Tool**
+**AI-Powered Full-Stack Web Development Tool - Full bolt.diy Integration**
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Convex](https://img.shields.io/badge/Convex-4A3FFF?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjNEEzRkZGIi8+Cjwvc3ZnPgo=)](https://convex.dev/)
 [![Electron](https://img.shields.io/badge/Electron-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
+[![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+
+**✨ Full bolt.diy Codebase Integration Complete!**
 
 </div>
 
@@ -260,19 +263,61 @@ Edit `tailwind.config.ts` and `app/index.css`:
 
 ## 🚢 Deployment
 
-### Web App
+### Cloudflare Pages (Recommended)
 
-1. **Convex Backend**
+#### Prerequisites
+- Cloudflare account
+- Cloudflare Pages project
+- Cloudflare API Token with `Cloudflare Pages` permissions
+- Wrangler CLI installed: `npm install -g wrangler`
+
+#### Deploy to Cloudflare Pages
+
+1. **Build the application**
    ```bash
-   pnpm convex:deploy
+   npm run build
    ```
 
-2. **Frontend**
-   - Deploy to Vercel, Netlify, or any static host
-   - Set environment variables
-   - Configure domain
+2. **Login to Cloudflare**
+   ```bash
+   npx wrangler login
+   ```
 
-### Docker
+3. **Deploy using API Token**
+   ```bash
+   # Set your token
+   export CLOUDFLARE_API_TOKEN="your_token_here"
+
+   # Or use .env.local
+   echo "CLOUDFLARE_API_TOKEN=your_token_here" > .env.local
+
+   # Deploy
+   npx wrangler pages deploy build/client --project-name=bolt-chef-unified-v2
+   ```
+
+4. **Configure Environment Variables**
+   - Go to Cloudflare Pages Dashboard
+   - Set environment variables for production
+   - Add all your AI provider API keys
+
+### Other Platforms
+
+#### Convex Backend
+```bash
+npm run convex:deploy
+```
+
+#### Vercel
+```bash
+vercel deploy
+```
+
+#### Netlify
+```bash
+netlify deploy --prod --dir=build
+```
+
+#### Docker
 
 ```bash
 # Build image
@@ -286,10 +331,32 @@ docker run -p 3000:3000 bolt-chef-unified
 
 ```bash
 # Build for current platform
-pnpm electron:build
+npm run electron:build
 
 # Build for all platforms
-pnpm electron:build -mwl
+npm run electron:build:dist
+```
+
+---
+
+## 🔑 Environment Variables
+
+Required for all deployments:
+
+```bash
+# AI Providers (add any you're using)
+OPENAI_API_KEY=...
+ANTHROPIC_API_KEY=...
+GOOGLE_API_KEY=...
+GROQ_API_KEY=...
+
+# Convex
+CONVEX_DEPLOYMENT=...
+CONVEX_DEPLOY_KEY=...
+
+# Optional: Cloudflare (for Pages deployment)
+CLOUDFLARE_API_TOKEN=...
+CLOUDFLARE_ACCOUNT_ID=...
 ```
 
 ## 📝 License
@@ -298,11 +365,26 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- [Bolt.diy](https://github.com/stackblitz-labs/bolt.diy) - Original inspiration
+- [Bolt.diy](https://github.com/stackblitz-labs/bolt.diy) - **Full codebase integrated** with 19+ AI providers
 - [Chef](https://github.com/get-convex/chef) - Convex-based architecture
 - [shadcn/ui](https://ui.shadcn.com/) - UI component library
 - [Monaco Editor](https://microsoft.github.io/monaco-editor/) - Code editor
 - [Convex](https://convex.dev/) - Reactive backend platform
+
+## 📊 What's Integrated
+
+| Component | bolt.diy Source | bolt-chef-unified-v2 | Status |
+|-----------|----------------|---------------------|---------|
+| AI Providers | 19+ providers | ✅ Full integration | Complete |
+| Components | 10+ component dirs | ✅ All copied | Complete |
+| LLM Module | Full implementation | ✅ Fully integrated | Complete |
+| Editor | Monaco + CodeMirror | ✅ Enhanced | Complete |
+| Terminal | XTerm.js | ✅ Integrated | Complete |
+| Git | Full Git integration | ✅ Ready to use | Complete |
+| Electron | Desktop app | ✅ Configured | Complete |
+| Convex | ❌ Not included | ✅ Chef backend | Integrated |
+
+**Full Integration Documentation**: See [BOLT_DIY_INTEGRATION.md](./BOLT_DIY_INTEGRATION.md)
 
 ## 📞 Support
 
