@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import UnoCSS from 'unocss/vite';
 import * as dotenv from 'dotenv';
 
 // Load environment variables from multiple files

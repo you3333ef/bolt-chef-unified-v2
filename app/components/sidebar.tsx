@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
-import { Project } from '@/types';
+import type { Project } from '@/types';
 
 export function Sidebar() {
   const navigate = useNavigate();
